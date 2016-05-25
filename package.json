@@ -40,12 +40,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-bootstrap.git"
+    "url": "git+ssh://git@github.com/alexandrehebert/ng2-bootstrap.git"
   },
   "bugs": {
-    "url": "https://github.com/valor-software/ng2-bootstrap/issues"
+    "url": "https://github.com/alexandrehebert/ng2-bootstrap/issues"
   },
-  "homepage": "https://github.com/valor-software/ng2-bootstrap#readme",
+  "homepage": "https://github.com/alexandrehebert/ng2-bootstrap#readme",
   "dependencies": {
     "moment": "2.13.0"
   },
@@ -113,5 +113,8 @@
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1",
     "zone.js": "0.6.12"
+  },
+  "publishConfig": {
+    "registry": "http://ec2-52-29-36-235.eu-central-1.compute.amazonaws.com:4873/"
   }
 }
