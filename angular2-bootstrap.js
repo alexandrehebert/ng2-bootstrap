@@ -5856,6 +5856,7 @@ webpackJsonp([2],[
 	        Object.assign(this, options);
 	        this.classMap = { 'in': false, 'fade': false };
 	        this.classMap[options.placement] = true;
+	        this.classMap['tooltip-' + options.placement] = true;
 	    }
 	    TooltipContainerComponent.prototype.ngAfterViewInit = function () {
 	        var p = position_1.positionService
@@ -5920,7 +5921,7 @@ webpackJsonp([2],[
 	        },
 	        set: function (value) {
 	            this._matches = value;
-	            if (this._matches.length > 0) {
+	            if (this._matches.length > 0 && this.parent.typeaheadFocusFirst) {
 	                this._active = this._matches[0];
 	            }
 	        },
@@ -5943,8 +5944,9 @@ webpackJsonp([2],[
 	        this.top = p.top + 'px';
 	        this.left = p.left + 'px';
 	    };
-	    TypeaheadContainerComponent.prototype.selectActiveMatch = function () {
-	        this.selectMatch(this._active);
+	    TypeaheadContainerComponent.prototype.selectActiveMatch = function (_model) {
+	        if (_model === void 0) { _model = undefined; }
+	        this.selectMatch(this._active || _model);
 	    };
 	    TypeaheadContainerComponent.prototype.prevActiveMatch = function () {
 	        var index = this.matches.indexOf(this._active);
@@ -16725,6 +16727,7 @@ webpackJsonp([2],[
 	        this.typeaheadSingleWords = true;
 	        this.typeaheadWordDelimiters = ' ';
 	        this.typeaheadPhraseDelimiters = '\'"';
+	        this.typeaheadFocusFirst = false;
 	        this.isTypeaheadOptionsListActive = false;
 	        this._matches = [];
 	        this.placement = 'bottom-left';
@@ -16749,7 +16752,7 @@ webpackJsonp([2],[
 	                return;
 	            }
 	            if (e.keyCode === 13) {
-	                this.container.selectActiveMatch();
+	                this.container.selectActiveMatch(this.cd.model);
 	                return;
 	            }
 	        }
@@ -17044,6 +17047,10 @@ webpackJsonp([2],[
 	        core_1.Input(), 
 	        __metadata('design:type', String)
 	    ], TypeaheadDirective.prototype, "typeaheadPhraseDelimiters", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], TypeaheadDirective.prototype, "typeaheadFocusFirst", void 0);
 	    __decorate([
 	        core_1.HostListener('keyup', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -17635,7 +17642,8 @@ webpackJsonp([2],[
 	            self.rows = this.split(days, 7);
 	            if (this.showWeeks) {
 	                self.weekNumbers = [];
-	                var thursdayIndex = (4 + 7 - this.startingDay) % 7, numWeeks = self.rows.length;
+	                var thursdayIndex = (4 + 7 - this.startingDay) % 7;
+	                var numWeeks = self.rows.length;
 	                for (var curWeek = 0; curWeek < numWeeks; curWeek++) {
 	                    self.weekNumbers.push(self.getISO8601WeekNumber(self.rows[curWeek][thursdayIndex].date));
 	                }
@@ -17789,7 +17797,8 @@ webpackJsonp([2],[
 	        this.datePicker.setRefreshViewHandler(function () {
 	            var years = new Array(this.yearRange);
 	            var date;
-	            for (var i = 0, start = self.getStartingYear(this.activeDate.getFullYear()); i < this.yearRange; i++) {
+	            var start = self.getStartingYear(this.activeDate.getFullYear());
+	            for (var i = 0; i < this.yearRange; i++) {
 	                date = new Date(start + i, 0, 1);
 	                date = this.fixTimeZone(date);
 	                years[i] = this.createDateObject(date, this.formatYear);

@@ -17,6 +17,7 @@ export declare class TypeaheadDirective implements OnInit {
     typeaheadSingleWords: boolean;
     typeaheadWordDelimiters: string;
     typeaheadPhraseDelimiters: string;
+    typeaheadFocusFirst: boolean;
     container: TypeaheadContainerComponent;
     isTypeaheadOptionsListActive: boolean;
     private debouncer;

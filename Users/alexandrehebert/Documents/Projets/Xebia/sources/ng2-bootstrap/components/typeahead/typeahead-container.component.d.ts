@@ -17,7 +17,7 @@ export declare class TypeaheadContainerComponent {
     matches: Array<string>;
     field: string;
     position(hostEl: ElementRef): void;
-    selectActiveMatch(): void;
+    selectActiveMatch(_model?: any): void;
     prevActiveMatch(): void;
     nextActiveMatch(): void;
     protected selectActive(value: any): void;
