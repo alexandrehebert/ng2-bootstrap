@@ -63,7 +63,7 @@ export class TypeaheadContainerComponent {
 
   public set matches(value:Array<string>) {
     this._matches = value;
-    if (this._matches.length > 0) {
+    if (this._matches.length > 0 && this.parent.typeaheadFocusFirst) {
       this._active = this._matches[0];
     }
   }
@@ -84,8 +84,8 @@ export class TypeaheadContainerComponent {
     this.left = p.left + 'px';
   }
 
-  public selectActiveMatch():void {
-    this.selectMatch(this._active);
+  public selectActiveMatch(_model:any = undefined):void {
+    this.selectMatch(this._active || _model);
   }
 
   public prevActiveMatch():void {
