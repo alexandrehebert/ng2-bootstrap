@@ -35,11 +35,11 @@ export class TypeaheadDirective implements OnInit {
   @Input() public typeaheadSingleWords:boolean = true;
   @Input() public typeaheadWordDelimiters:string = ' ';
   @Input() public typeaheadPhraseDelimiters:string = '\'"';
+  @Input() public typeaheadFocusFirst:boolean = false;
 
   // not yet implemented
   // @Input() private typeaheadAppendToBody:boolean;
-  // @Input() private typeaheadEditable:boolean;
-  // @Input() private typeaheadFocusFirst:boolean;
+  // @Input() public typeaheadEditable:boolean;
   // @Input() private typeaheadInputFormatter:any;
   // @Input() private typeaheadSelectOnExact:boolean;
   // @Input() private typeaheadSelectOnBlur:boolean;
@@ -82,7 +82,7 @@ export class TypeaheadDirective implements OnInit {
 
       // enter
       if (e.keyCode === 13) {
-        this.container.selectActiveMatch();
+        this.container.selectActiveMatch(this.cd.model);
         return;
       }
     }
