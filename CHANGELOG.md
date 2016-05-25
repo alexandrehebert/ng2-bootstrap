@@ -1,3 +1,8 @@
+<a name="1.0.18"></a>
+## [1.0.18](https://github.com/alexandrehebert/ng2-bootstrap/compare/v1.0.17...v1.0.18) (2016-05-25)
+
+
+
 <a name="1.0.17"></a>
 ## [1.0.17](https://github.com/valor-software/ng2-bootstrap/compare/v1.0.16...v1.0.17) (2016-05-25)
 
