@@ -3,7 +3,7 @@ Native Angular2 directives for Bootstrap, works with Bootstrap 3 and 4-alfa
 
 Follow me [![twitter](https://img.shields.io/twitter/follow/valorkin.svg?style=social&label=%20valorkin)](https://twitter.com/valorkin) to be notified about new releases.
 
-[![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://github.com/mgechev/angular2-style-guide)
+[![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 [![Build Status](https://travis-ci.org/valor-software/ng2-bootstrap.svg?branch=master)](https://travis-ci.org/valor-software/ng2-bootstrap)
 [![Code Climate](https://codeclimate.com/github/valor-software/ng2-bootstrap/badges/gpa.svg)](https://codeclimate.com/github/valor-software/ng2-bootstrap)
 [![Join the chat at https://gitter.im/valor-software/ng2-bootstrap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/valor-software/ng2-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -50,12 +50,12 @@ Follow me [![twitter](https://img.shields.io/twitter/follow/valorkin.svg?style=s
 ```
 ```js
   /* src/app/home/home.ts */
-  import {Alert, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+  import {AlertComponent, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
   ...
   @Component({
     directives: [
       ...
-      Alert, DATEPICKER_DIRECTIVES
+      AlertComponent, DATEPICKER_DIRECTIVES
       ]
   })
   export class Home {
@@ -113,11 +113,11 @@ And update your `app.component.ts` to have following content:
 
 ```ts
 import {Component} from 'angular2/core';
-import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
+import {AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
   selector: 'my-app',
-  directives: [Alert],
+  directives: [AlertComponent],
   template: `<alert type="info">ng2-bootstrap hello world!</alert>`
 })
 export class AppComponent {
@@ -136,7 +136,7 @@ And you are ready to go! :)
 - [x] Collapse
 - [+-] Datepicker (Datepicker popup not implemented)
 - [x] Dropdown
-- [ ] Modal (in progress...)
+- [x] Modal
 - [x] Pagination
 - [ ] Popover
 - [x] Progressbar

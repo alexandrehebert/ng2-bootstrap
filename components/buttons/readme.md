@@ -1,8 +1,12 @@
 ### Usage
 ```typescript
-import {BUTTON_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import { BUTTON_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 // or
+import { BUTTON_DIRECTIVES } from 'ng2-bootstrap/components/buttons';
+
 import { ButtonRadioDirective, ButtonCheckboxDirective } from 'ng2-bootstrap/ng2-bootstrap';
+// or
+import { ButtonRadioDirective, ButtonCheckboxDirective } from 'ng2-bootstrap/components/buttons';
 ```
 ### Annotations
 ```typescript
@@ -36,7 +40,7 @@ export const BUTTON_DIRECTIVES = [ButtonCheckbox, ButtonRadio];
 
 ### Radio button properties
   - `btnRadio` (`string`) - radio button value, will be set to `ngModel`
-  - `uncheckable` (`?boolean=false`) - if `true` radio button can be unchecked and `null` will be set to `ngModel`
+  - `uncheckable` (`?boolean=false`) - if `true` radio button can be unchecked
 
 ### Checkbox button properties
   - `btnCheckboxTrue` (`?any=true`) - truthy value, will be set to `ngModel`

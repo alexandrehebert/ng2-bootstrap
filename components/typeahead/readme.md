@@ -1,18 +1,20 @@
 ### Usage
 ```typescript
 import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+// or
+import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/components/typeahead';
 ```
 
 ### Annotations
 ```typescript
 // directive Typeahead
 @Directive({
-  selector: 'typeahead, [typeahead]'
+  selector: '[typeahead][ngModel]'
 })
 export class TypeaheadDirective implements OnInit {
   @Output() public typeaheadLoading:EventEmitter<boolean>;
   @Output() public typeaheadNoResults:EventEmitter<boolean>;
-  @Output() public typeaheadOnSelect:EventEmitter<{item: any}>;
+  @Output() public typeaheadOnSelect:EventEmitter&lt;{item: any}&gt;;
 
   @Input() public typeahead:any;
   @Input() public typeaheadMinLength:number;
